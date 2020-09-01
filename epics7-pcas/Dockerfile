@@ -16,7 +16,9 @@ COPY Makefile.local /opt/epics/modules/Makefile.local
 RUN cd /opt/epics/ && make
 
 RUN apt install -y python3 python3-pip swig
+RUN pip3 install virtualenv
 RUN pip3 install git+git://github.com/paulscherrerinstitute/pcaspy.git 
+RUN virtualenv venv
 
 # Copy the S2I scripts to /usr/libexec/s2i
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i

@@ -27,5 +27,6 @@ cp -Rf /tmp/src/. ./
 echo "---> Building application from source..."
 if [ -f requirements.txt ]; then
     echo "---> Installing requirements..."
-    pip3 install requirements.txt
+    source /opt/epics/venv/bin/activate
+    pip3 install -r requirements.txt
 fi

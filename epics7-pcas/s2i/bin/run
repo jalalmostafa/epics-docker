@@ -11,6 +11,8 @@ set -e
 
 if [ -z $PCAS_PY_FILE ]; then 
     echo "Environment variable \"PCAS_PY_FILE\" is not set. Set this var to your pcaspy main script!"
+    exit 1
 fi
 
+source /opt/epics/venv/bin/activate
 python3 $PCAS_PY_FILE
