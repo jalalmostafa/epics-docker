@@ -1,13 +1,15 @@
-FROM debian:jessie
+FROM debian:buster
+
+LABEL maintainer="Jalal Mostafa <jalalmostafa22@gmail.com>"
 
 RUN mkdir /opt/epics
 WORKDIR /opt/epics/
 
 RUN apt update 
-RUN apt install -y apt-transport-https wget
+RUN apt install -y apt-transport-https wget gnupg
 RUN wget --quiet https://epicsdeb.bnl.gov/debian/repo-key.pub -O - | apt-key add -
-RUN echo "deb https://epicsdeb.bnl.gov/debian/ jessie main contrib" | tee -a /etc/apt/sources.list
-RUN echo "deb-src https://epicsdeb.bnl.gov/debian/ jessie main contrib" | tee -a /etc/apt/sources.list
+RUN echo "deb https://epicsdeb.bnl.gov/debian/ buster main contrib" | tee -a /etc/apt/sources.list
+RUN echo "deb-src https://epicsdeb.bnl.gov/debian/ buster main contrib" | tee -a /etc/apt/sources.list
 RUN apt update 
 RUN apt install -y procserv telnet git build-essential
 

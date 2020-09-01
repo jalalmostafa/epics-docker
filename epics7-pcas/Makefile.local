@@ -1,0 +1,2 @@
+SUBMODULES += pcas
+pcas_DEPEND_DIRS = libcom

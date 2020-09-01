@@ -1,0 +1,16 @@
+#!/bin/bash -e
+#
+# S2I run script for the 'jalalmostafa/epics-pcas' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+set -e
+
+if [ -z $PCAS_PY_FILE ]; then 
+    echo "Environment variable \"PCAS_PY_FILE\" is not set. Set this var to your pcaspy main script!"
+fi
+
+python3 $PCAS_PY_FILE

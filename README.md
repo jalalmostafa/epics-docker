@@ -31,3 +31,6 @@ Dockerfile: https://github.com/jalalmostafa/epics-docker/blob/master/epics7-pcas
 ### How to run:
 
 Set `PCAS_PY_FILE` to your pcaspy python file.
+
+
+docker run -d --name epics-pcas -p 5064:5064/tcp -p 5064:5064/udp -p 5065:5065/udp --mount type=bind,source="$(pwd)"/adeireplay.py,target=/opt/epics/config/adeireplay.py -e PCAS_PY_FILE=/opt/epics/config/adeireplay.py jalalmostafa/epics-pcas:7.0.4
