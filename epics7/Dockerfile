@@ -13,8 +13,8 @@ RUN apt install -y procserv telnet git build-essential
 
 RUN git clone -b 7.0 https://git.launchpad.net/epics-base .
 RUN make
-ENV EPICS_BASE=/opt/epics/epics7
-ENV EPICS_HOST_ARCH=$(${EPICS_BASE}/startup/EpicsHostArch)
+ENV EPICS_BASE=/opt/epics
+ENV EPICS_HOST_ARCH=linux-x86_64
 ENV PATH=${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
 
 RUN mkdir /opt/epics/config
