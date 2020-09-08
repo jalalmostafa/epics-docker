@@ -3,7 +3,8 @@ FROM jalalmostafa/epics-softioc:7.0.4
 LABEL maintainer="Jalal Mostafa <jalalmostafa22@gmail.com>"
 
 # Rename the builder environment variable to inform users about application you provide them
-ENV BUILDER_VERSION 0.0.1
+ENV BUILDER_VERSION 0.0.2
+ENV PYTHONUNBUFFERED 1
 
 # Set labels used in OpenShift to describe the builder image
 LABEL io.k8s.description="Build EPICS Servers with Portable Channel Access Server and python3" \
